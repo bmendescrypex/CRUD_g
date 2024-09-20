@@ -1,20 +1,20 @@
-# Usar a imagem oficial do Go
-FROM golang:1.20-alpine
+# Usar uma imagem oficial do Golang
+FROM golang:1.21.0-alpine
 
 # Definir o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Baixar as dependências do Go
-RUN go mod download
-
-# Copiar o resto do código da aplicação
+# Copiar os arquivos do projeto para o container
 COPY . .
 
-# Compilar o código
+# Baixar as dependências
+RUN go mod tidy
+
+# Compilar a aplicação Go
 RUN go build -o main .
 
-# Expor a porta 8080 para acessar o serviço
+# Expor a porta que a aplicação irá usar
 EXPOSE 8080
 
-# Comando de execução da aplicação
+# Comando para rodar a aplicação
 CMD ["./main"]

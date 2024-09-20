@@ -19,3 +19,15 @@ services:
       PGADMIN_DEFAULT_PASSWORD: "BM2106"
     ports:
       - "40002:80"
+  app:
+    build: .
+    container_name: crud_go_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: BM2106
+      DB_NAME: crud_db
