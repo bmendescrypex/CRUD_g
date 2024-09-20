@@ -1,11 +1,13 @@
-package main	
+package main
 
-import "github.com/gin-gonic/gin"
+// import (
+// 	"github.com/bmendescrypex/CRUD_g/database"
+// )
 
-func main() {
-	router := gin.New()
-	
-	routes.UserRoute(router)
+// func main() {
+// 	database.Connect()
 
-	router.Run(":8080")
-}
+// 	router := gin.Default()
+
+// 	router.Run(":8080")
+// }
